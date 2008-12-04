@@ -1,0 +1,14 @@
+#
+# Arch Linux repository mirrorlist
+#
+Server = ftp://mirror.pacific.net.au/linux/archlinux/$repo/os/x86_64
+Server = ftp://mirror.aarnet.edu.au/pub/archlinux/$repo/os/x86_64
+Server = ftp://ftp.iinet.net.au/pub/archlinux/$repo/os/x86_64
+Server = http://mirrors.easynews.com/linux/archlinux/$repo/os/x86_64
+Server = http://archlinux.unixheads.org/$repo/os/x86_64
+Server = http://mirror.neotuli.net/arch/$repo/os/x86_64
+Server = http://schlunix.org/archlinux/$repo/os/x86_64
+Server = http://mirror.umoss.org/archlinux/$repo/os/x86_64
+Server = http://holmes.umflint.edu/archlinux/$repo/os/x86_64
+Server = http://mirror.rit.edu/archlinux/$repo/os/x86_64
+Server = http://www.mirrorservice.org/sites/ftp.archlinux.org/$repo/os/x86_64

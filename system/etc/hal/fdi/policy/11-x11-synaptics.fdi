@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>                                                                                             
+<deviceinfo version="0.2">                                                                                                              
+  <device>                                                                                                                              
+    <match key="info.capabilities" contains="input.touchpad">                                                                           
+      <match key="info.product" contains="Synaptics TouchPad">                                                                          
+        <merge key="input.x11_driver" type="string">synaptics</merge>                                                                   
+        <!-- Arbitrary options can be passed to the driver using                                                                        
+             the input.x11_options property since xorg-server-1.5. -->                                                                  
+        <!-- EXAMPLE:                                                                                                                   
+        <merge key="input.x11_options.LeftEdge" type="string">120</merge>                                                               
+        -->                                                                                                                             
+        <!-- Added by Fabio Varesano using setting from xorg.conf after X.org update to 1.5.x                                           
+        Following the old xorg.conf settings                                                                        
+
+        Section "InputDevice"
+        Identifier      "Touchpad"
+        Driver          "synaptics"
+        Option  "Device"        "/dev/input/mouse0"
+        Option  "Protocol"      "auto-dev"         
+        Option  "LeftEdge"      "1700"             
+        Option  "RightEdge"     "5300"             
+        Option  "TopEdge"       "1700"             
+        Option  "BottomEdge"    "4200"             
+        Option  "FingerLow"     "25"               
+        Option  "FingerHigh"    "30"               
+        Option  "MaxTapTime"    "180"              
+        Option  "MaxTapMove"    "220"              
+        Option  "VertScrollDelta" "100"            
+        Option  "MinSpeed"      "0.06"             
+        Option  "MaxSpeed"      "0.12"             
+        Option  "AccelFactor" "0.0010"             
+        Option  "SHMConfig"     "on"               
+        Option  "VertTwoFingerScroll"   "1"        
+        Option  "HorizTwoFingerScroll"  "1"        
+        EndSection                                 
+        -->                                        
+        <merge key="input.x11_options.LeftEdge" type="string">1700</merge>
+        <merge key="input.x11_options.RightEdge" type="string">5300</merge>
+        <merge key="input.x11_options.TopEdge" type="string">1700</merge>
+        <merge key="input.x11_options.BottomEdge" type="string">4200</merge>
+        <merge key="input.x11_options.FingerLow" type="string">25</merge>
+        <merge key="input.x11_options.FingerHigh" type="string">30</merge>
+        <merge key="input.x11_options.MaxTapTime" type="string">180</merge>
+        <merge key="input.x11_options.MaxTapMove" type="string">220</merge>
+        <merge key="input.x11_options.VertScrollDelta" type="string">100</merge>
+        <merge key="input.x11_options.MinSpeed" type="string">0.10</merge>
+        <merge key="input.x11_options.MaxSpeed" type="string">0.70</merge>
+        <merge key="input.x11_options.AccelFactor" type="string">0.00150</merge>
+        <merge key="input.x11_options.SHMConfig" type="string">on</merge>
+        <merge key="input.x11_options.VertTwoFingerScroll" type="string">1</merge>
+        <merge key="input.x11_options.HorizTwoFingerScroll" type="string">1</merge>
+        <merge key="input.x11_options.VertEdgeScroll" type="string">1</merge>
+        <merge key="input.x11_options.HorizEdgeScroll" type="string">1</merge>
+        <merge key="input.x11_options.TapButton1" type="string">1</merge>
+        <merge key="input.x11_options.TapButton2" type="string">2</merge>
+        <merge key="input.x11_options.TapButton3" type="string">3</merge>
+      </match>
+
+      <match key="info.product" contains="AlpsPS/2 ALPS">
+        <merge key="input.x11_driver" type="string">synaptics</merge>
+      </match>
+      <match key="info.product" contains="appletouch">
+        <merge key="input.x11_driver" type="string">synaptics</merge>
+      </match>
+      <match key="info.product" contains="bcm5974">
+        <merge key="input.x11_driver" type="string">synaptics</merge>
+      </match>
+    </match>
+  </device>
+</deviceinfo>
+

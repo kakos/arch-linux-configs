@@ -1,0 +1,8 @@
+gtk-icon-theme-name="Eikon"
+gtk-font-name = "Liberation Sans 9"
+#"DejaVu Sans Semi-Condensed 9"
+style "user-font"
+{
+        font_name = "Liberation Sans 9"
+}
+widget_class "*" style "user-font"

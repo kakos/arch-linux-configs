@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# /etc/rc.local: Local multi-user startup script.
+#
+hdparm -B 254 /dev/sda >> /dev/null

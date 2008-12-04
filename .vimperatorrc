@@ -1,0 +1,36 @@
+"Turn the menu and toolbar on.
+:set guioptions+=mT
+
+"Turn off the show tabs by default.
+:set showtabline=1
+
+"Turn session tracking off.
+:set! browser.startup.page=1
+
+"Allow user to click in address bar.
+:set! browser.urlbar.clickSelectsAll=true
+:set! browser.urlbar.doubleClickSelectsAll=true
+
+"Map Ctrl + n for new windows
+:map <C-n> <C-v><C-n>
+
+"Map Ctrl + t for new tabs
+:map <C-t> :tabopen<Enter>
+
+"Map paste operation normally.
+:imap <C-v> <C-v>
+
+" restart Vimperator
+map <C-r>   :restart<CR>
+
+"awesome bar style hints
+:set wildoptions=auto
+:set cpt=l
+
+set defsearch=google
+
+command! sourcerc :source ~/.vimperatorrc
+
+echo ".vimperatorrc sourced"
+
+" vim: ft=vimperator sw=2 sts=2

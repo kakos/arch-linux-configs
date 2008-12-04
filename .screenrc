@@ -1,0 +1,37 @@
+#-------------------------------------------------------------------------------------
+# ~/.screenrc
+# Last modified 18/11/2008
+#-------------------------------------------------------------------------------------
+
+startup_message off
+vbell off
+vbell_msg "[[[ ding ]]]"
+activity "active: %n (%t) [%w:%s]"
+bell "bell: %n (%t) [%w:%s]^G"
+msgwait 2 # 1 second messages
+defscrollback 10000
+
+autodetach on
+deflogin on
+nethack on
+defutf8 on
+altscreen on
+defbce on
+nonblock on
+defhstatus "screen: ^En (^Et)"
+term screen-256color
+terminfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#termcapinfo rxvt|rxvt-unicode|urxvt|rxvt-256color|screen|xs|rxvt ti@:te@
+#sorendition +b kG
+
+#[randy@voodoo] updates :: none                        1 irssi  [2 vim .screenrc]
+#hardstatus alwayslastline "%{= dd} %=%-w[%n %t]%+w" 
+caption always "%{= dd}%{b}[ %=%{w}%?%-Lw%?%{b}(%{W}%n*%f %t%?(%u)%?%{b})%{w}%?%+Lw%?%?%= %{b}][%{B} %H %{W}%l %{b}]"
+
+# Default apps
+# screen -t irc weechat-curses
+screen zsh
+screen htop
+
+bindkey "^[Od" prev
+bindkey "^[Oc" next

@@ -1,0 +1,34 @@
+---------------------------
+-- STxza's Awesome Theme --
+---------------------------
+
+font            = Terminus 7
+
+bg_normal       = #000000AA
+bg_focus        = #1C1C1CAA
+bg_urgent       = #3579A8AA
+
+fg_normal       = #C4C4C4
+fg_focus        = #3579A8
+fg_urgent       = #EFEFEF
+
+border_width    = 1
+border_normal   = #4C4C4C66
+border_focus    = #3579A866
+border_marked   = #FF000066
+
+
+taglist_squares           = true
+taglist_squares_sel       = /usr/share/awesome/themes/default/taglist/squarefw.png
+taglist_squares_unsel     = /usr/share/awesome/themes/default/taglist/squarew.png
+
+tasklist_floating_icon    = /usr/share/awesome/themes/default/tasklist/floatingw.png
+awesome_icon              = /home/stxza/.config/awesome/icons/awesome16.png
+arch_icon              = /home/stxza/.config/awesome/icons/arch2.png
+
+menu_submenu_icon         = /home/stxza/.config/awesome/icons/submenu.png
+menu_height               = 12
+menu_width                = 100
+
+wallpaper_cmd = awsetbg -c /home/stxza/pics/Walls/td_blue.png
+# vim: ft=conf
