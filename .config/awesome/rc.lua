@@ -384,7 +384,6 @@ awful.hooks.manage.register(function (c)
     -- Set border anyway
     c.border_width = beautiful.border_width
     c.border_color = beautiful.border_normal
-    client.focus = c
 
     -- Check if the application should be floating
     local cls = c.class
@@ -406,6 +405,9 @@ awful.hooks.manage.register(function (c)
         c.screen = target.screen
         awful.client.movetotag(tags[target.screen][target.tag], c)
     end
+    
+    -- Do this after tag mapping, so you don't see it on the wrong tag for a split second.
+    client.focus = c
     
     -- Prevent new clients from becoming master
     awful.client.setslave(c)
