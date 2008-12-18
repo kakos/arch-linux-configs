@@ -323,16 +323,16 @@ key({ modkey }, "b", function ()
 end):add()
 
 -- Standard Bindings + App Launching
-key({ modkey }, "Left", awful.tag.viewprev):add()
-key({ modkey }, "Right", awful.tag.viewnext):add()
---key({ modkey }              , "Escape"  , awful.tag.history.restore):add()
+key({ modkey }              , "Left"    , awful.tag.viewprev):add()
+key({ modkey }              , "Right"   , awful.tag.viewnext):add()
+key({ modkey }              , "Escape"  , awful.tag.history.restore):add()
 key({ modkey }              , "x"       , function () awful.util.spawn(terminal) end):add()
 key({ modkey }              , "f"       , function () awful.util.spawn(browser) end):add()
 key({ modkey }              , "p"       , function () awful.util.spawn(fileManager) end):add()
 key({ modkey }              , "g"       , function () awful.util.spawn("geany") end):add()
 key({ modkey, "Control" }   , "r"       , function () mypromptbox[mouse.screen].text = awful.util.escape(awful.util.restart()) end):add()
-key({ modkey, "Shift" }, "q", awesome.quit):add()
-key({ modkey }, "m", function () if client.focus then client.focus.maximized_horizontal = not client.focus.maximized_horizontal
+key({ modkey, "Shift" }     , "q"       , awesome.quit):add()
+key({ modkey }              , "m"       , function () if client.focus then client.focus.maximized_horizontal = not client.focus.maximized_horizontal
                                                              client.focus.maximized_vertical = not client.focus.maximized_vertical end end):add()
 key({ modkey }              , "c"       , function () client.focus:kill() end):add()
 key({ modkey }              , "j"       , function () awful.client.focus.byidx(1); client.focus:raise() end):add()
@@ -340,16 +340,16 @@ key({ modkey }              , "k"       , function () awful.client.focus.byidx(-
 key({ modkey, "Control" }   , "space"   , awful.client.togglefloating):add()
 key({ modkey, "Control" }   , "Return"  , function () client.focus:swap(awful.client.master()) end):add()
 key({ modkey }              , "Tab"     , awful.client.focus.history.previous):add()
-key({ modkey }, "u", awful.client.urgent.jumpto):add()
+key({ modkey }              , "u"       , awful.client.urgent.jumpto):add()
 key({ modkey, "Shift" }     , "r"       , function () client.focus:redraw() end):add()
-key({ modkey }, "l", function () awful.tag.incmwfact(0.05) end):add()
-key({ modkey }, "h", function () awful.tag.incmwfact(-0.05) end):add()
-key({ modkey, "Shift" }, "h", function () awful.tag.incnmaster(1) end):add()
-key({ modkey, "Shift" }, "l", function () awful.tag.incnmaster(-1) end):add()
-key({ modkey, "Control" }, "h", function () awful.tag.incncol(1) end):add()
-key({ modkey, "Control" }, "l", function () awful.tag.incncol(-1) end):add()
-key({ modkey }, "space", function () awful.layout.inc(layouts, 1) end):add()
-key({ modkey, "Shift" }, "space", function () awful.layout.inc(layouts, -1) end):add()
+key({ modkey }              , "l"       , function () awful.tag.incmwfact(0.05) end):add()
+key({ modkey }              , "h"       , function () awful.tag.incmwfact(-0.05) end):add()
+key({ modkey, "Shift" }     , "h"       , function () awful.tag.incnmaster(1) end):add()
+key({ modkey, "Shift" }     , "l"       , function () awful.tag.incnmaster(-1) end):add()
+key({ modkey, "Control" }   , "h"       , function () awful.tag.incncol(1) end):add()
+key({ modkey, "Control" }   , "l"       , function () awful.tag.incncol(-1) end):add()
+key({ modkey }              , "space"   , function () awful.layout.inc(layouts, 1) end):add()
+key({ modkey, "Shift" }     , "space"   , function () awful.layout.inc(layouts, -1) end):add()
 key({ modkey }              , "r"       , function () awful.prompt.run({ prompt = "Run: " }, mypromptbox[mouse.screen], awful.util.spawn, awful.completion.bash, os.getenv("HOME").."/.cache/awesome/history") end):add()
 
 -- Mod+Tab: Run revelation
@@ -362,10 +362,10 @@ key({ modkey }, "Tab", function ()
     for i,v in ipairs(allclients) do
       if allclients[i+1] then
         allclients[i+1]:swap(v)
-                                     end
-                                 end
+      end
+    end
     awful.client.focus.byidx(-1)
-                             end):add()
+  end):add()
 
 -- The other way 'round!
 key({ modkey, "Shift" }, "Tab", function ()
@@ -378,10 +378,10 @@ key({ modkey, "Shift" }, "Tab", function ()
         toswap = v
       else
         toswap = v
-                end
-            end
+      end
+    end
     awful.client.focus.byidx(-1)
-        end):add()
+  end):add()
 
 -- }}}
 -------------------------------------------------------------------------------------
