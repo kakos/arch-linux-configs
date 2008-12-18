@@ -19,9 +19,9 @@ end
 -- }}}
 
 -- {{{ Layouttext function
-function returnLayoutText(layout)
-    return setFg(beautiful.fg_focus, " | ")..layoutText[layout]..setFg(beautiful.fg_focus, " | ")
-end
+--function returnLayoutText(layout)
+--    return setFg(beautiful.fg_focus, " | ")..layoutText[layout]..setFg(beautiful.fg_focus, " | ")
+--end
 -- }}}
 
 ---- Widget functions
@@ -53,7 +53,7 @@ function wifiInfo(adapter)
         wifiStrength = wifiStrength.."%"
     end
     
-    wifiwidget.text = spacer..setFg(beautiful.fg_focus, "Wfi:")..wifiStrength..spacer
+    wifiwidget.text = spacer..setFg(beautiful.fg_focus, "WFi:")..wifiStrength..spacer
 end
 -- }}}
 
@@ -137,6 +137,7 @@ function cputemp(core)
 
 	local pos = cpu:find('+')+1
 	cpu = string.sub(cpu, pos, pos+3)
+    
 	return tonumber(cpu)
 end
 
@@ -162,6 +163,7 @@ function sysInfo(widget, args)
     local core2 = spacer..setFg(beautiful.fg_focus, "C2:")..args[3].."%"..spacer..cputemp(1).."°"
     local gpu = spacer..setFg(beautiful.fg_focus, "G:")..gputemp().."°"..spacer
     local sysinfo = core1..core2..gpu 
+    
 	return sysinfo
 end
 -- }}}
@@ -178,6 +180,7 @@ function getVol()
 	else
 		volume = volume.."M"
 	end
+    
     return spacer..setFg(beautiful.fg_focus, "Vol:")..volume..spacer
 end
 -- }}}

@@ -1,4 +1,4 @@
-gtk-icon-theme-name="Eikon"
+gtk-icon-theme-name="hydroxygen"
 gtk-font-name = "DejaVu Sans Condensed 9"
 style "user-font"
 {

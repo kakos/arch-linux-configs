@@ -37,7 +37,7 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-"amixer set Master mute"
+"amixer -c 0 sset Master,0 toggle"
     m:0x0 + c:121
     XF86AudioMute
 "amixer set Master 1dB+ unmute"

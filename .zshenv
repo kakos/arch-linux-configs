@@ -10,7 +10,7 @@ export LC_ALL=en_AU.UTF-8
 export LANG=en_AU.UTF-8
 export LOCALE=en_AU.UTF-8
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER=swiftweasel
 export OOO_FORCE_DESKTOP=gnome
 export HISTCONTROL=ignoredups
 

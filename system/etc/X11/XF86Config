@@ -7,12 +7,17 @@ Section "ServerLayout"
 EndSection
 
 Section "Files"
-	ModulePath   "/usr/lib/xorg/modules"
-	FontPath     "/usr/share/fonts/misc"
-	FontPath     "/usr/share/fonts/100dpi:unscaled"
-	FontPath     "/usr/share/fonts/75dpi:unscaled"
-	FontPath     "/usr/share/fonts/TTF"
-	FontPath     "/usr/share/fonts/Type1"
+	ModulePath  "/usr/lib/xorg/modules"
+	FontPath    "/usr/share/fonts/misc"
+	FontPath    "/usr/share/fonts/75dpi:unscaled"
+	FontPath    "/usr/share/fonts/100dpi:unscaled"
+	FontPath    "/usr/share/fonts/TTF"
+	FontPath    "/usr/share/fonts/Type1"
+    FontPath    "/usr/share/fonts/75dpi/"
+    FontPath    "/usr/share/fonts/100dpi/"
+    FontPath    "/usr/share/fonts/artwiz-fonts/"
+    FontPath    "/usr/share/fonts/local/"
+    FontPath    "/home/stxza/.fonts/"
 EndSection
 
 Section "Module"
@@ -58,7 +63,6 @@ Section "Screen"
     EndSubSection
 EndSection
 
-Section "Extensions"
-  Option "Composite" "Enable"
-EndSection
-
+#Section "Extensions"
+#  Option "Composite" "Enable"
+#EndSection

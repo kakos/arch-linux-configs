@@ -106,6 +106,7 @@ alias reboothome='sudo netcfg2 -d wifihome && sleep 3 && sudo reboot'
 alias shutdownuni='sudo netcfg2 -d wifiuni && sleep 3 && sudo shutdown -hP now'
 alias rebootuni='sudo netcfg2 -d wifiuni && sleep 3 && sudo reboot'
 alias screenie='cd ~/bin/ && ./info.pl'
+alias pacman='sudo pacman-color'
 # }}}
 
 # {{{ URXVT workaround - stop first line completion bug in tiling WMs
@@ -115,6 +116,10 @@ fi
 # }}}
 
 # {{{ Functions
+
+# Completion for pacman-color
+function pacman; pacman-color $argv;
+
 # The number given after pacstatus determines how many lines of history you would like shown
 pacstats() {
 	pacman -V | grep Pacman | cut -d " " -f 20-

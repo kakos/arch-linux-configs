@@ -24,7 +24,7 @@ my %display = (
 # Escape ' with a backslash, \'
 # Leave blank if you don't want a screenshot taken
 #my $screenshot = 'scrot screen-%H-%M-%S.png -e \'mv $f ~/media/screens/\'';
-my $screenshot = 'scrot screen-%H-%M-%S.png -e \'mv $f ~/pics/Screens/\'';
+my $screenshot = 'scrot screen-%H-%M-%S.png -q 90 -e \'mv $f ~/pics/Screens/\'';
 
 # The Color to use for the variables, needs to be global for logos.pl
 @colors = ( "\e[37;1;37m", "\e[37;0;36m", "\e[m" );
