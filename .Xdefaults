@@ -53,34 +53,26 @@ URxvt.boldFont:         -*-terminus-medium-r-*-*-12-120-*-*-*-*-*-*
 ! }}}
 
 ! {{{ Colours
-*background:    #1C1C1C
-*foreground:    #B4B4B4
 
 ! ---| tangoesque scheme |--- {{{
-! Black
-*color0:        #000000
-*color8:        #B3B3B3
-! Red
-*color1:        #ff6565
-*color9:        #ff8d8d
-! Green
-*color2:        #93d44f
-*color10:       #c8e7a8
-! Yellow
-*color3:        #eab93d
-*color11:       #ffc123
-! Blue
-*color4:        #204a87
-*color12:       #3465a4
-! Mangenta
-*color5:        #ce5c00
-*color13:       #f57900
-! Cyan 
-*color6:        #89b6e2
-*color14:       #46a4ff
-! White
-*color7:        #cccccc
-*color15:       #ffffff
+*background: #1C1C1C
+*foreground: #B4B4B4
+*color0:  #000000
+*color1:  #ff6565
+*color2:  #93d44f
+*color3:  #eab93d
+*color4:  #204a87
+*color5:  #ce5c00
+*color6:  #89b6e2
+*color7:  #cccccc
+*color8:  #555753
+*color9:  #ff8d8d
+*color10: #c8e7a8
+*color11: #ffc123
+*color12: #3465a4
+*color13: #f57900
+*color14: #46a4ff
+*color15: #ffffff
 !}}}
 
 ! ---| MrElendig |--- {{{

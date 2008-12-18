@@ -211,7 +211,7 @@ for s = 1, screen.count() do
     
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
-    mylayoutbox[s] = widget({ type = "imagebox", align = "left" })
+    mylayoutbox[s] = widget({ type = "imagebox", align = "right" })
     mylayoutbox[s]:buttons({ button({ }, 1, function () awful.layout.inc(layouts, 1) end),
                              button({ }, 3, function () awful.layout.inc(layouts, -1) end),
                              button({ }, 4, function () awful.layout.inc(layouts, 1) end),
@@ -231,18 +231,17 @@ for s = 1, screen.count() do
     -- Create the wibox
     mywibox[s] = wibox({ 
         position = "top", 
-        height = 16, 
+        height = 17, 
         --name = "statusbar"..s, 
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
         border_color = beautiful.border_normal, 
-        --border_width = beautiful.border_width 
+        border_width = beautiful.wibox_border_width
     })
     
     -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {  mylauncher,
+    mywibox[s].widgets = {  --mylauncher,
                             mytaglist[s],
-                            mylayoutbox[s],
                             mytasklist[s],
                             mypromptbox[s],
                             separator,
@@ -259,7 +258,8 @@ for s = 1, screen.count() do
                             volumewidget,
                             separator,
                             clockwidget,
-                            s == 1 and mysystray or nil 
+                            s == 1 and mysystray or nil,
+                            mylayoutbox[s] 
                           }
     mywibox[s].screen = s
 end
@@ -305,10 +305,10 @@ for i = 1, keynumber do
     -- Mod+Shift+F1-F6 moves the current client to tag 1-6
     key({ modkey, "Shift" }, "F"..i,
         function ()
-        if client.focus then
-            if tags[client.focus.screen][i] then
-                awful.client.movetotag(tags[client.focus.screen][i])
-            end
+            if client.focus then
+                if tags[client.focus.screen][i] then
+                    awful.client.movetotag(tags[client.focus.screen][i])
+                end
             end
         end):add()
 end
