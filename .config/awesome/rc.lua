@@ -1,10 +1,7 @@
 --[[    $HOME/.config/awesome/rc.lua
         Awesome Window Manager configuration file by STxza        
-        v3.1-120-gd3a4506 (Helicopter)
-        • Build: Dec 18 2008 22:12:23 for x86_64 by gcc version 4.3.2 (stxza@archstxl)
-        • D-Bus support: ✔
         - only works with awesome-git newer than 13/12/08
-        - last update: 18/12/2008                                                ]]--
+        - last update: 21/12/2008                                                ]]--
         
 io.stderr:write("\n\r::: Awesome Loaded @ ", os.time(), " :::\r\n")
 -------------------------------------------------------------------------------------
@@ -15,7 +12,8 @@ require("awful")
 require("beautiful")
 require("naughty")
 require("wicked")
-require("revelation")
+--require("revelation")
+
 -- Load my functions
 require("functions")
 
@@ -26,7 +24,7 @@ require("functions")
 -- Themes define colours, icons, and wallpapers
 theme_path = os.getenv("HOME").."/.config/awesome/themes/stxza"
 
--- Actually load theme
+-- Load theme
 beautiful.init(theme_path)
 
 -- Apps
@@ -111,6 +109,7 @@ end
 awful.layout.set(awful.layout.suit.tile.bottom, tags[1][1])
 awful.layout.set(awful.layout.suit.max, tags[1][2])
 awful.layout.set(awful.layout.suit.floating, tags[1][5])
+awful.layout.set(awful.layout.suit.max, tags[1][6])
 
 -- }}}
 -------------------------------------------------------------------------------------
@@ -231,7 +230,7 @@ for s = 1, screen.count() do
     -- Create the wibox
     mywibox[s] = wibox({ 
         position = "top", 
-        height = 17, 
+        height = 18, 
         --name = "statusbar"..s, 
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
@@ -353,7 +352,7 @@ key({ modkey, "Shift" }     , "space"   , function () awful.layout.inc(layouts, 
 key({ modkey }              , "r"       , function () awful.prompt.run({ prompt = "Run: " }, mypromptbox[mouse.screen], awful.util.spawn, awful.completion.bash, os.getenv("HOME").."/.cache/awesome/history") end):add()
 
 -- Mod+Tab: Run revelation
-key({ modkey, "Control" }, "z", revelation.revelation):add()
+--key({ modkey, "Control" }, "z", revelation.revelation):add()
 
 -- Rotate clients and focus master
 key({ modkey }, "Tab", function ()

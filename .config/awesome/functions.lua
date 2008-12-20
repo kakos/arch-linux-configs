@@ -43,7 +43,7 @@ function wifiInfo(adapter)
     if wifiStrength == "0" then
         wifiStrength = setFg("#ff6565", wifiStrength.."%")
         naughty.notify({ title      = "Wifi Warning"
-                       , text       = "Wireless Network is Down! ("..wifiStrength.."% connectivity)"
+                       , text       = "Wireless Network is Down! ("..wifiStrength.." connectivity)"
                        , timeout    = 3
                        , position   = "top_right"
                        , fg         = beautiful.fg_focus
@@ -53,7 +53,7 @@ function wifiInfo(adapter)
         wifiStrength = wifiStrength.."%"
     end
     
-    wifiwidget.text = spacer..setFg(beautiful.fg_focus, "WFi:")..wifiStrength..spacer
+    wifiwidget.text = spacer..setFg(beautiful.fg_focus, "WFi:")..spacer..wifiStrength..spacer
 end
 -- }}}
 

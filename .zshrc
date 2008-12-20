@@ -79,8 +79,8 @@ setprompt () {
     #PROMPT="[%{$fg_bold[cyan]%}%~%{$reset_color%}]-> "
     #PROMPT="[%{$fg[white]%}%n %{$fg_bold[cyan]%}%~%{$reset_color%}]> "
     #RPROMPT="[%{$fg_bold[yellow]%}%D{%H:%M}%{$reset_color%}]"
-    PROMPT="%{$fg_bold[grey]%}[%{$fg_bold[white]%}%~%{$reset_color%}%{$fg_bold[grey]%}]%{$reset_color%}-%{$fg_bold[blue]%}»%{$reset_color%} "
-    RPROMPT="%{$fg[cyan]%}%D{%H:%M}%{$reset_color%}"
+    PROMPT="%{$fg_bold[grey]%}[%{$fg_bold[white]%}%~%{$reset_color%}%{$fg_bold[grey]%}]%{$reset_color%}-%{$fg_bold[yellow]%}»%{$reset_color%} "
+    RPROMPT="%{$fg[white]%}%D{%H:%M}%{$reset_color%}"
 }
 
 setprompt
