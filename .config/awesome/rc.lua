@@ -12,7 +12,7 @@ require("awful")
 require("beautiful")
 require("naughty")
 require("wicked")
---require("revelation")
+--FIX: require("revelation")
 
 -- Load my functions
 require("functions")
@@ -76,15 +76,16 @@ apptags =
     ["geeqie"] = { screen = 1, tag = 6 },
     ["gvim"] = { screen = 1, tag = 3 },
     ["geany"] = { screen = 1, tag = 3 },
-    ["Gimp"] = { screen = 1, tag = 5 }
+    ["Gimp"] = { screen = 1, tag = 5 },
+    ["/usr/share/eclipse/eclipse -name Ecli"] = { screen = 1, tag = 3 }
+    --FIX ["soffice-dev"] = { screen = 1, tag = 6 }
 }
 
 -- Define if we want to use titlebar on all applications.
 use_titlebar = false
 
 -- }}}
-
-
+-------------------------------------------------------------------------------------
 -- {{{ Tags
 
 -- Define tags table.
@@ -239,7 +240,7 @@ for s = 1, screen.count() do
     })
     
     -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {  --mylauncher,
+    mywibox[s].widgets = {  mylauncher,
                             mytaglist[s],
                             mytasklist[s],
                             mypromptbox[s],
@@ -259,7 +260,7 @@ for s = 1, screen.count() do
                             clockwidget,
                             s == 1 and mysystray or nil,
                             mylayoutbox[s] 
-                          }
+                         }
     mywibox[s].screen = s
 end
 
@@ -304,13 +305,54 @@ for i = 1, keynumber do
     -- Mod+Shift+F1-F6 moves the current client to tag 1-6
     key({ modkey, "Shift" }, "F"..i,
         function ()
-            if client.focus then
-                if tags[client.focus.screen][i] then
-                    awful.client.movetotag(tags[client.focus.screen][i])
-                end
+            if client.focus and tags[client.focus.screen][i] then
+                awful.client.movetotag(tags[client.focus.screen][i])
+            end
+        end):add()
+    -- Mod+Ctrl+Shift+F1-F6 toggles the current client to tag 1-6    
+    key({ modkey, "Control", "Shift" }, "F"..i,
+        function ()
+            if client.focus and tags[client.focus.screen][i] then
+                awful.client.toggletag(tags[client.focus.screen][i])
             end
         end):add()
 end
+
+-- Standard Bindings
+-- Change Tags
+key({ modkey }              , "Left"    , awful.tag.viewprev):add()
+key({ modkey }              , "Right"   , awful.tag.viewnext):add()
+key({ modkey }              , "Escape"  , awful.tag.history.restore):add()
+
+-- Client launching
+key({ modkey }              , "x"       , function () awful.util.spawn(terminal) end):add()
+key({ modkey }              , "f"       , function () awful.util.spawn(browser) end):add()
+key({ modkey }              , "p"       , function () awful.util.spawn(fileManager) end):add()
+key({ modkey }              , "g"       , function () awful.util.spawn("geany") end):add()
+
+-- Client control
+key({ modkey }              , "c"       , function () client.focus:kill() end):add()
+key({ modkey, "Shift" }     , "r"       , function () client.focus:redraw() end):add()
+key({ modkey, "Control" }   , "space"   , awful.client.togglefloating):add()
+key({ modkey }              , "j"       , function () awful.client.focus.byidx(1); client.focus:raise() end):add()
+key({ modkey }              , "k"       , function () awful.client.focus.byidx(-1);  client.focus:raise() end):add()
+key({ modkey }              , "m"       , function () if client.focus then client.focus.maximized_horizontal = not client.focus.maximized_horizontal
+                                                             client.focus.maximized_vertical = not client.focus.maximized_vertical end end):add()
+                                                             
+-- Awesome control
+key({ modkey, "Control" }   , "r"       , function () mypromptbox[mouse.screen].text = awful.util.escape(awful.util.restart()) end):add()
+key({ modkey, "Shift" }     , "q"       , awesome.quit):add()
+key({ modkey }              , "r"       , function () awful.prompt.run({ prompt = "Run: " }, mypromptbox[mouse.screen], awful.util.spawn, awful.completion.bash, os.getenv("HOME").."/.cache/awesome/history") end):add()
+
+-- Layout control
+key({ modkey }              , "space"   , function () awful.layout.inc(layouts, 1) end):add()
+key({ modkey, "Shift" }     , "space"   , function () awful.layout.inc(layouts, -1) end):add()
+key({ modkey }              , "l"       , function () awful.tag.incmwfact(0.05) end):add()
+key({ modkey }              , "h"       , function () awful.tag.incmwfact(-0.05) end):add()
+key({ modkey, "Shift" }     , "h"       , function () awful.tag.incnmaster(1) end):add()
+key({ modkey, "Shift" }     , "l"       , function () awful.tag.incnmaster(-1) end):add()
+key({ modkey, "Control" }   , "h"       , function () awful.tag.incncol(1) end):add()
+key({ modkey, "Control" }   , "l"       , function () awful.tag.incncol(-1) end):add()
 
 -- Shows or hides the statusbar
 key({ modkey }, "b", function () 
@@ -321,38 +363,8 @@ key({ modkey }, "b", function ()
     end
 end):add()
 
--- Standard Bindings + App Launching
-key({ modkey }              , "Left"    , awful.tag.viewprev):add()
-key({ modkey }              , "Right"   , awful.tag.viewnext):add()
-key({ modkey }              , "Escape"  , awful.tag.history.restore):add()
-key({ modkey }              , "x"       , function () awful.util.spawn(terminal) end):add()
-key({ modkey }              , "f"       , function () awful.util.spawn(browser) end):add()
-key({ modkey }              , "p"       , function () awful.util.spawn(fileManager) end):add()
-key({ modkey }              , "g"       , function () awful.util.spawn("geany") end):add()
-key({ modkey, "Control" }   , "r"       , function () mypromptbox[mouse.screen].text = awful.util.escape(awful.util.restart()) end):add()
-key({ modkey, "Shift" }     , "q"       , awesome.quit):add()
-key({ modkey }              , "m"       , function () if client.focus then client.focus.maximized_horizontal = not client.focus.maximized_horizontal
-                                                             client.focus.maximized_vertical = not client.focus.maximized_vertical end end):add()
-key({ modkey }              , "c"       , function () client.focus:kill() end):add()
-key({ modkey }              , "j"       , function () awful.client.focus.byidx(1); client.focus:raise() end):add()
-key({ modkey }              , "k"       , function () awful.client.focus.byidx(-1);  client.focus:raise() end):add()
-key({ modkey, "Control" }   , "space"   , awful.client.togglefloating):add()
-key({ modkey, "Control" }   , "Return"  , function () client.focus:swap(awful.client.master()) end):add()
-key({ modkey }              , "Tab"     , awful.client.focus.history.previous):add()
-key({ modkey }              , "u"       , awful.client.urgent.jumpto):add()
-key({ modkey, "Shift" }     , "r"       , function () client.focus:redraw() end):add()
-key({ modkey }              , "l"       , function () awful.tag.incmwfact(0.05) end):add()
-key({ modkey }              , "h"       , function () awful.tag.incmwfact(-0.05) end):add()
-key({ modkey, "Shift" }     , "h"       , function () awful.tag.incnmaster(1) end):add()
-key({ modkey, "Shift" }     , "l"       , function () awful.tag.incnmaster(-1) end):add()
-key({ modkey, "Control" }   , "h"       , function () awful.tag.incncol(1) end):add()
-key({ modkey, "Control" }   , "l"       , function () awful.tag.incncol(-1) end):add()
-key({ modkey }              , "space"   , function () awful.layout.inc(layouts, 1) end):add()
-key({ modkey, "Shift" }     , "space"   , function () awful.layout.inc(layouts, -1) end):add()
-key({ modkey }              , "r"       , function () awful.prompt.run({ prompt = "Run: " }, mypromptbox[mouse.screen], awful.util.spawn, awful.completion.bash, os.getenv("HOME").."/.cache/awesome/history") end):add()
-
 -- Mod+Tab: Run revelation
---key({ modkey, "Control" }, "z", revelation.revelation):add()
+--FIX: key({ modkey, "Control" }, "z", revelation.revelation):add()
 
 -- Rotate clients and focus master
 key({ modkey }, "Tab", function ()
@@ -425,12 +437,14 @@ awful.hooks.manage.register(function (c)
         -- Add a titlebar
         awful.titlebar.add(c, { modkey = modkey })
     end
+    
     -- Add mouse bindings
     c:buttons({
         button({ }, 1, function (c) client.focus = c; c:raise() end),
         button({ modkey }, 1, awful.mouse.client.move),
         button({ modkey }, 3, awful.mouse.client.resize)
     })
+    
     -- New client may not receive focus
     -- if they're not focusable, so set border anyway.
     c.border_width = beautiful.border_width
@@ -494,7 +508,7 @@ end)
 
 -- 5 seconds
 awful.hooks.timer.register(15, function()
-    --memInfo()
+    memInfo()
     wifiInfo("wlan0")
 end)
 
