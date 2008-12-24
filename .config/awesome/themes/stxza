@@ -27,8 +27,8 @@ awesome_icon              = /home/stxza/.config/awesome/icons/awesome16_gray.png
 arch_icon                 = /home/stxza/.config/awesome/icons/arch2.png
 
 menu_submenu_icon         = /home/stxza/.config/awesome/icons/submenu.png
-menu_height   = 15
-menu_width    = 100
+menu_height               = 15
+menu_width                = 100
 
 wallpaper_cmd             = awsetbg -c /home/stxza/pics/Walls/td.png
 

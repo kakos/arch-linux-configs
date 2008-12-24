@@ -76,8 +76,8 @@ apptags =
     ["geeqie"] = { screen = 1, tag = 6 },
     ["gvim"] = { screen = 1, tag = 3 },
     ["geany"] = { screen = 1, tag = 3 },
-    ["Gimp"] = { screen = 1, tag = 5 },
-    ["/usr/share/eclipse/eclipse -name Ecli"] = { screen = 1, tag = 3 }
+    ["Gimp"] = { screen = 1, tag = 5 }
+    --FIX ["/usr/share/eclipse/eclipse -name Ecli"] = { screen = 1, tag = 3 }
     --FIX ["soffice-dev"] = { screen = 1, tag = 6 }
 }
 
