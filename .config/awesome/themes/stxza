@@ -13,10 +13,11 @@ fg_focus                  = #C2C2C2
 fg_urgent                 = #EFEFEF
 
 border_width              = 1
-wibox_border_width        = 1
-border_normal             = #4D4D4D66
-border_focus              = #BFBFBF66
-border_marked             = #E6E6FA66
+border_width_wibox        = 1
+border_normal             = #67676766
+border_wibox              = #4D4D4D66
+border_focus              = #FFFFFF66
+border_marked             = #A020F066
 
 taglist_squares           = true
 taglist_squares_sel       = /usr/share/awesome/themes/default/taglist/squarefw.png
@@ -30,7 +31,7 @@ menu_submenu_icon         = /home/stxza/.config/awesome/icons/submenu.png
 menu_height               = 15
 menu_width                = 100
 
-wallpaper_cmd             = awsetbg -c /home/stxza/pics/Walls/td.png
+wallpaper_cmd             = awsetbg -f /home/stxza/pics/Walls/3132984998_1b90e2b15e_b.jpg
 
 layout_dwindle            = /usr/share/awesome/themes/default/layouts/dwindlew.png
 layout_fairh              = /usr/share/awesome/themes/default/layouts/fairhw.png

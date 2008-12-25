@@ -1,7 +1,7 @@
 --[[    $HOME/.config/awesome/rc.lua
         Awesome Window Manager configuration file by STxza        
         - only works with awesome-git newer than 13/12/08
-        - last update: 21/12/2008                                                ]]--
+        - last update: 24/12/2008                                                ]]--
         
 io.stderr:write("\n\r::: Awesome Loaded @ ", os.time(), " :::\r\n")
 -------------------------------------------------------------------------------------
@@ -235,8 +235,8 @@ for s = 1, screen.count() do
         --name = "statusbar"..s, 
         fg = beautiful.fg_normal, 
         bg = beautiful.bg_normal, 
-        border_color = beautiful.border_normal, 
-        border_width = beautiful.wibox_border_width
+        border_color = beautiful.border_wibox, 
+        border_width = beautiful.border_width_wibox
     })
     
     -- Add widgets to the wibox - order matters
@@ -479,7 +479,7 @@ awful.hooks.manage.register(function (c)
     awful.client.setslave(c)
 
     -- Honor size hints: if you want to drop the gaps between windows, set this to false.
-    c.honorsizehints = false
+    c.honorsizehints = true
 end)
 
 -- Hook function to execute when arranging the screen.
