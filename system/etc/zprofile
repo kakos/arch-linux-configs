@@ -1,0 +1,25 @@
+# 
+# /etc/zprofile
+#
+
+# load profiles from /etc/profile.d
+#  (to disable a profile, just remove execute permission on it)
+if [ `ls -A1 /etc/profile.d/ | wc -l` -gt 0 ]; then
+  for profile in /etc/profile.d/*.sh; do
+    if [ -x $profile ]; then
+     . $profile
+    fi
+  done
+  unset profile
+fi
+
+umask 022
+
+# Termcap is outdated, old, and crusty, kill it.
+unset TERMCAP
+
+# Man is much better than us at figuring this out
+unset MANPATH
+
+# MOTD
+eval `which fortune`

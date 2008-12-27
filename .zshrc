@@ -6,13 +6,12 @@
 #------------------------------------------------------------------#
 
 # {{{ History
-export HISTFILE=~/.zsh_history
-export HISTSIZE=5000
-export SAVEHIST=5000
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
-setopt NO_BG_NICE # don't nice background tasks
 # }}}
 
 # {{{ Autoload
@@ -21,6 +20,11 @@ compinit
 autoload -U zcalc 	# Math			
 zstyle :compinstall filename '/home/stxza/.zshrc'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# }}}
+
+# {{{ other opts
+setopt NO_BG_NICE # don't nice background tasks
+setopt nobeep 
 # }}}
 
 # {{{ Completion
@@ -134,6 +138,21 @@ fi
 
 # {{{ Functions
 
+# reload zshrc
+function src() {
+        autoload -U zrecompile
+                [[ -f ~/.zshrc ]] && zrecompile -p ~/.zshrc
+				#for i in "$(find ~/.zsh/ -type f)"; do
+				#	[[ -f $i ]] && zrecompile -p $i
+				#	[[ -f $i.zwc.old ]] && rm -f $i.zwc.old
+				#done
+                [[ -f ~/.zcompdump ]] && zrecompile -p ~/.zcompdump
+                [[ -f ~/.zcompdump ]] && zrecompile -p ~/.zcompdump
+                [[ -f ~/.zshrc.zwc.old ]] && rm -f ~/.zshrc.zwc.old
+                [[ -f ~/.zcompdump.zwc.old ]] && rm -f ~/.zcompdump.zwc.old
+                source ~/.zshrc
+}
+
 # Completion for pacman-color
 function pacman; pacman-color $argv;
 
@@ -208,22 +227,16 @@ roll () {
     esac
 }
 
-# reload zshrc
-function src() {
-        autoload -U zrecompile
-                [[ -f ~/.zshrc ]] && zrecompile -p ~/.zshrc
-				#for i in "$(find ~/.zsh/ -type f)"; do
-				#	[[ -f $i ]] && zrecompile -p $i
-				#	[[ -f $i.zwc.old ]] && rm -f $i.zwc.old
-				#done
-                [[ -f ~/.zcompdump ]] && zrecompile -p ~/.zcompdump
-                [[ -f ~/.zcompdump ]] && zrecompile -p ~/.zcompdump
-                [[ -f ~/.zshrc.zwc.old ]] && rm -f ~/.zshrc.zwc.old
-                [[ -f ~/.zcompdump.zwc.old ]] && rm -f ~/.zcompdump.zwc.old
-                source ~/.zshrc
-}
-# }}}
+# user chownage
+function mkmine() { sudo chown -R ${USER} ${1:-.}; }
 
-# {{{MOTD
-fortune
+# search the vim reference manual for keyword
+:h() {  vim --cmd ":silent help $@" --cmd "only"; }
+
+# sanitize - set file/directory owner and permissions to normal values (644/755)
+# Usage: sanitize <file>
+sanitize() {
+    chmod -R u=rwX,go=rX "$@"
+    chown -R ${USER}.users "$@"
+}
 # }}}

@@ -108,7 +108,8 @@ end
 
 -- Layout presets
 awful.layout.set(awful.layout.suit.tile.bottom, tags[1][1])
-awful.layout.set(awful.layout.suit.max, tags[1][2])
+awful.layout.set(awful.layout.suit.tiled, tags[1][2])
+awful.layout.set(awful.layout.suit.max, tags[1][4])
 awful.layout.set(awful.layout.suit.floating, tags[1][5])
 awful.layout.set(awful.layout.suit.max, tags[1][6])
 
@@ -126,13 +127,13 @@ myawesomemenu = {
 }
 
 -- Main menu
-mymainmenu = awful.menu.new({ items = { { "Terminal"    , terminal },
-                                        { "Swiftweasel" , browser },
+mymainmenu = awful.menu.new({ items = { { "Term"    , terminal },
+                                        { "FF" , browser },
                                         { "PCManFM"     , fileManager },
                                         { "Gvim"        , "gvim" },
                                         { "Gimp"        , "gimp" },
                                         { "Screen"      , terminal.." -e screen -RR" },
-                                        { "Awesome"     , myawesomemenu, beautiful.awesome_icon }
+                                        { "Awesome"     , myawesomemenu }
                                       }
                             })
 
@@ -479,7 +480,7 @@ awful.hooks.manage.register(function (c)
     awful.client.setslave(c)
 
     -- Honor size hints: if you want to drop the gaps between windows, set this to false.
-    c.honorsizehints = true
+    c.honorsizehints = false
 end)
 
 -- Hook function to execute when arranging the screen.

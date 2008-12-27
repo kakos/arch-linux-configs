@@ -2,10 +2,10 @@
 -- STxza's Awesome Theme --
 ---------------------------
 
-font                      = Terminus 6
+font                      = Monaco Bold 7
 
 bg_normal                 = #000000AA
-bg_focus                  = #333333AA
+bg_focus                  = #292929AA
 bg_urgent                 = #BFBFBFAA
 
 fg_normal                 = #FFFFFF
@@ -24,14 +24,14 @@ taglist_squares_sel       = /usr/share/awesome/themes/default/taglist/squarefw.p
 taglist_squares_unsel     = /usr/share/awesome/themes/default/taglist/squarew.png
 
 tasklist_floating_icon    = /home/stxza/.config/awesome/icons/layouts/floatingw.png
-awesome_icon              = /home/stxza/.config/awesome/icons/awesome16_gray.png
+awesome_icon              = /home/stxza/.config/awesome/icons/awesome16_white.png
 arch_icon                 = /home/stxza/.config/awesome/icons/arch2.png
 
 menu_submenu_icon         = /home/stxza/.config/awesome/icons/submenu.png
 menu_height               = 15
-menu_width                = 100
+menu_width                = 88
 
-wallpaper_cmd             = awsetbg -f /home/stxza/pics/Walls/3132984998_1b90e2b15e_b.jpg
+wallpaper_cmd             = awsetbg -c /home/stxza/pics/Walls/Aurora_Borealis.jpg
 
 layout_dwindle            = /usr/share/awesome/themes/default/layouts/dwindlew.png
 layout_fairh              = /usr/share/awesome/themes/default/layouts/fairhw.png
