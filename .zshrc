@@ -240,3 +240,7 @@ sanitize() {
     chown -R ${USER}.users "$@"
 }
 # }}}
+
+# MOTD {{{
+fortune
+# }}}
